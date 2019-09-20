@@ -20,7 +20,7 @@ module.exports = {
         alias: {
             Com: path.resolve(__dirname, 'app/source/components/'),
         },
-    },
+    }, 
     module: {
         rules: [
             {
@@ -37,6 +37,12 @@ module.exports = {
         ],
     },
     mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: PUBLIC_PATH,
+        port: ServerConfig.port,
+        liveReload:true,
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
