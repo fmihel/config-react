@@ -3,9 +3,10 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ServerConfig = require('./app/server/config');
+const ServerConfig = require('./server/config');
+const { PageReloadPlugin } = require('page-reload-webpack-plugin');
 
-const SOURCE_PATH = './app/source/';
+const SOURCE_PATH = './app/';
 const PUBLIC_PATH = ServerConfig.public;
 const TEMPLATE_PATH = './app/template/';
 const MEDIA_PATH = './app/media/';
@@ -20,7 +21,7 @@ module.exports = {
         alias: {
             Com: path.resolve(__dirname, 'app/source/components/'),
         },
-    }, 
+    },
     module: {
         rules: [
             {
@@ -41,7 +42,7 @@ module.exports = {
     devServer: {
         contentBase: PUBLIC_PATH,
         port: ServerConfig.port,
-        liveReload:true,
+        liveReload: true,
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -56,5 +57,6 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: `${MEDIA_PATH}favicon.ico` },
         ]),
+        new PageReloadPlugin({port:ServerConfig.port,enable:true}),
     ],
 };

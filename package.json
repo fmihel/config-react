@@ -2,9 +2,9 @@
   "name": "fmihel-config-js",
   "version": "0.0.1",
   "description": "javascript project for tests",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "webpack": "webpack --open",
+    "webpack": "webpack",
     "auto": "webpack-dev-server --open"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.14.3",
     "html-webpack-plugin": "^3.2.0",
+    "page-reload-webpack-plugin": "^0.2.3",
     "style-loader": "^1.0.0",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
