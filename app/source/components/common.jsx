@@ -1,10 +1,14 @@
 import React from 'react';
 
-class Common extends React.Component{
-    bind(funcName){
-        this[funcName] = this[funcName].bind(this);
+class Common extends React.Component {
+    bind(...funcsName) {
+        funcsName.map((funcName) => {
+            this[funcName] = this[funcName].bind(this);
+            return undefined;
+        });
     }
-    render(){
+
+    render() {
         return (
             <div className = {this.props.css.light.self}>
                 {this.props.caption}
@@ -13,12 +17,12 @@ class Common extends React.Component{
     }
 }
 Common.defaultProps = {
-    css:{
-        light:{
-            self:'common'
-        }
+    css: {
+        light: {
+            self: 'common',
+        },
     },
-    caption:'common'
+    caption: 'common',
 };
 
 export default Common;
