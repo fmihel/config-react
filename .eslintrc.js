@@ -36,8 +36,9 @@ module.exports = {
         "react/jsx-uses-vars": "error",
         "no-useless-constructor":"off",
         "no-unused-vars":"warn",
-        'class-methods-use-this':"warn",
+        'class-methods-use-this':"off",
         'no-plusplus':'off',
+        "max-classes-per-file":"off",
         "indent": [
             "error",
             4

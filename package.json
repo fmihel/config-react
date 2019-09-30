@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "fmihel-lib": ">=0.2.0",
+    "fmihel-lib": "latest",
     "jquery": "^3.4.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
