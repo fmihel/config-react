@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+    user-select: none;
+}
 
 body{
     background-color: var(--fone);
@@ -21,10 +25,14 @@ body{
 }
 
 #page{
-    padding:10px;
+    
     border:1px solid var(--border);
     box-sizing: border-box;
     flex-grow: 1;
-    
     border-radius: 3px;
+    display: flex;
+}
+
+.box{
+    border:1px solid var(--border);
 }
