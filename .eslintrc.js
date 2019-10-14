@@ -39,6 +39,7 @@ module.exports = {
         'class-methods-use-this':"off",
         'no-plusplus':'off',
         "max-classes-per-file":"off",
+        "import/prefer-default-export":'off',
         "indent": [
             "error",
             4

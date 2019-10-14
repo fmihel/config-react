@@ -19,7 +19,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            Com: path.resolve(__dirname, 'app/source/components/'),
+            components: path.resolve(__dirname, 'app/source/components/'),
         },
     },
     module: {
