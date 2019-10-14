@@ -40,6 +40,8 @@ module.exports = {
         'no-plusplus':'off',
         "max-classes-per-file":"off",
         "import/prefer-default-export":'off',
+        'import/extensions':'off', 
+        'import/no-unresolved':'off',
         "indent": [
             "error",
             4
