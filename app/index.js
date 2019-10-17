@@ -1,6 +1,6 @@
 import './template/define.css';
 import './template/main.css';
-import { DOM } from 'fmihel-lib';
+import { DOM } from 'fmihel-browser';
 import React from 'react';
 import ReacDOM from 'react-dom';
 import { App } from 'components/App.jsx';
