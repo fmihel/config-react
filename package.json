@@ -41,13 +41,13 @@
     "page-reload-webpack-plugin": ">=0.2.3",
     "redux-logger": "^3.0.6",
     "style-loader": "^1.0.0",
-    "webpack": "^4.41.1",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "fmihel-browser": "^0.0.1",
+    "fmihel-browser-lib": "^0.0.4",
     "jquery": "^3.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { flex } from 'fmihel-browser';
+import { flex } from 'fmihel-browser-lib';
 
 
 export class App extends React.Component {
@@ -9,7 +9,7 @@ export class App extends React.Component {
 
     render() {
         return (
-            <div id='app' style={{ ...flex('horiz stretch'),padding:10 }}>
+            <div id='app' style={{ ...flex('horiz stretch'), padding: 10 }}>
                 App
             </div>
         );
