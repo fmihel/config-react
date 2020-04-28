@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ServerConfig = require('./server/config');
-const { PageReloadPlugin } = require('page-reload-webpack-plugin');
+//const { PageReloadPlugin } = require('page-reload-webpack-plugin');
 
 const SOURCE_PATH = './app/';
 const PUBLIC_PATH = ServerConfig.public;
@@ -35,6 +35,28 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.(scss)$/,
+                use: [
+                    {
+                        loader: 'style-loader', // inject CSS to page
+                    },{
+                        loader: 'css-loader', // translates CSS into CommonJS modules
+                    },{
+                        loader: 'postcss-loader', // Run post css actions
+                        options: {
+                            plugins: function () { // post css plugins, can be exported to postcss.config.js
+                                return [
+                                    require('precss'),
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    },{
+                        loader: 'sass-loader' // compiles SASS to CSS
+                    }
+                ]
+            },            
         ],
     },
     mode: 'development',
@@ -57,6 +79,6 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: `${MEDIA_PATH}favicon.ico` },
         ]),
-        new PageReloadPlugin({port:ServerConfig.port,enable:true}),
+        //new PageReloadPlugin({port:ServerConfig.port,enable:true}),
     ],
 };
