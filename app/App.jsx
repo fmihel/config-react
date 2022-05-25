@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import loader from './loader';
-import LazyCom from './components/LazyCom.jsx';
+// import LazyCom from './components/LazyCom.jsx';
+
+const LazyCom = lazy(() => import(/* webpackChunkName: "LazyCom" */'./components/LazyCom.jsx'));
 
 export class App extends React.Component {
     constructor(p) {
@@ -14,8 +16,8 @@ export class App extends React.Component {
 
     loadLazy() {
         loader('lazy')
-            .then(({ lazy, _ }) => {
-                lazy.noDef();
+            .then(({ lazy: bb, _ }) => {
+                bb.noDef();
                 // console.log(_.fill(Array(3), 'a'));
             });
 
@@ -38,7 +40,7 @@ export class App extends React.Component {
                 <button onClick={this.loadLazy}>load lazy..</button>
                 <button onClick={this.loadLazyReact}>load lazy react..</button>
                 {vsiisbleLazy
-                && <LazyCom/>
+                && <Suspense fallback={<div>Loading...</div>}><LazyCom/></Suspense>
                 }
             </div>
         );

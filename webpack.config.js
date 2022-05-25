@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ServerConfig = require('./server/config');
 //const { PageReloadPlugin } = require('page-reload-webpack-plugin');
 
-const isDevelopment = true;
+const isDevelopment = false;
 const SOURCE_PATH = './app/';
 const PUBLIC_PATH = ServerConfig.public;
 const TEMPLATE_PATH = './app/template/';
