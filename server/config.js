@@ -1,5 +1,5 @@
 const config = {
-    public: './public/',
+    public: './dist/',
     port: process.env.PORT | 3000,
 };
 

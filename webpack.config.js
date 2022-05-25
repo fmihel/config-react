@@ -6,16 +6,26 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ServerConfig = require('./server/config');
 //const { PageReloadPlugin } = require('page-reload-webpack-plugin');
 
+const isDevelopment = true;
 const SOURCE_PATH = './app/';
 const PUBLIC_PATH = ServerConfig.public;
 const TEMPLATE_PATH = './app/template/';
 const MEDIA_PATH = './app/media/';
 
 module.exports = {
-    entry: `${SOURCE_PATH}index.js`,
+    entry:{ 
+        index:`${SOURCE_PATH}index.js`,
+    },
     output: {
         path: path.resolve(__dirname, PUBLIC_PATH),
         filename: '[name].[contenthash].js',
+        //chunkFilename: '[name].bundle.js',
+        
+        //filename: '[name].bundle.js',
+        chunkFilename: '[name].bundle.[contenthash].js',
+        //publicPath: PUBLIC_PATH,
+        path: path.resolve(__dirname, PUBLIC_PATH),
+        //path: path.resolve(__dirname, 'dist'),        
     },
     resolve: {
         alias: {
@@ -59,12 +69,15 @@ module.exports = {
             },            
         ],
     },
-    mode: 'development',
-    devtool: 'inline-source-map',
+    mode: (isDevelopment  ? 'development' : 'production'),
+    devtool: (isDevelopment  ? 'inline-source-map' : ''),
     devServer: {
         contentBase: PUBLIC_PATH,
         port: ServerConfig.port,
         liveReload: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
     },
     plugins: [
         new CleanWebpackPlugin(),
