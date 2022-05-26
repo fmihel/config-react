@@ -1,8 +1,12 @@
 import React, { Suspense, lazy } from 'react';
-import loader from './loader';
+// import loader from './loader';
+import imports from './imports';
+import modules from './modules';
 // import LazyCom from './components/LazyCom.jsx';
 
 const LazyCom = lazy(() => import(/* webpackChunkName: "LazyCom" */'./components/LazyCom.jsx'));
+
+imports.add(modules);
 
 export class App extends React.Component {
     constructor(p) {
@@ -15,11 +19,19 @@ export class App extends React.Component {
     }
 
     loadLazy() {
-        loader('lazy')
+        imports('lazy', 'lodash')
             .then(({ lazy: bb, _ }) => {
                 bb.noDef();
-                // console.log(_.fill(Array(3), 'a'));
+                console.log(_.fill(Array(3), 'a'));
+            })
+            .catch((e) => {
+                console.error(e);
             });
+        // loader('lazy')
+        //    .then(({ lazy: bb, _ }) => {
+        //        bb.noDef();
+        //        // console.log(_.fill(Array(3), 'a'));
+        //    });
 
         // import(/* webpackChunkName: "lazy" */ './lazy')
         // .then(mod => {
